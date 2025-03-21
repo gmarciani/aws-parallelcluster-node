@@ -137,7 +137,7 @@ def _self_terminate():
     run_command("sudo ifconfig ens5 up")
     log.info("XXXXXXXXXX MGIACOMO - interface re-enabled XXXXXXXXXX")
     log.info("XXXXXXXXXX MGIACOMO - _self_terminate END XXXXXXXXXX")
-    # run_command("sudo poweroff -f")
+    run_command("sudo poweroff -f")
 
 
 @retry(stop_max_attempt_number=3, wait_fixed=1500)
@@ -220,7 +220,7 @@ def _run_computemgtd(config_file):
                 log.info("All computemgtd actions currently disabled")
             elif _is_self_node_down(computemgtd_config.nodename):
                 _self_terminate()
-
+        log.info("XXXXXXXXXX MODIFIED BY MGIACOMO -- self terminate skipped XXXXXXXXXX")
         sleep_remaining_loop_time(computemgtd_config.loop_time, current_time)
 
 
