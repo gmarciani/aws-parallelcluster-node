@@ -135,6 +135,7 @@ def _self_terminate():
     log.info("Self terminating instance now!")
     log.info("XXXXXXXXXX MGIACOMO - reenable interface XXXXXXXXXX")
     run_command("sudo ifconfig ens5 up")
+    log.info("XXXXXXXXXX MGIACOMO - interface re-enabled XXXXXXXXXX")
     log.info("XXXXXXXXXX MGIACOMO - _self_terminate END XXXXXXXXXX")
     # run_command("sudo poweroff -f")
 
