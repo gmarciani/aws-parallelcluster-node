@@ -187,6 +187,7 @@ def _run_computemgtd(config_file):
     computemgtd_config = _load_daemon_config(config_file)
     reload_config_counter = RELOAD_CONFIG_ITERATIONS
     while True:
+        log.info("XXXXXXXXXX MODIFIED BY MGIACOMO XXXXXXXXXX")
         # Get current time
         current_time = datetime.now(tz=timezone.utc)
 
@@ -224,6 +225,7 @@ def main():
         level=logging.INFO, format="%(asctime)s - [%(name)s:%(funcName)s] - %(levelname)s - %(message)s"
     )
     log.info("Computemgtd Startup")
+    log.info("XXXXXXXXXX MODIFIED BY MGIACOMO XXXXXXXXXX")
     try:
         clustermgtd_config_file = os.environ.get("CONFIG_FILE", COMPUTEMGTD_CONFIG_PATH)
         _run_computemgtd(clustermgtd_config_file)
