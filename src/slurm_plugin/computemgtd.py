@@ -129,10 +129,14 @@ class ComputemgtdConfig:
 def _self_terminate():
     """Self terminate the instance."""
     # Sleep for 10 seconds so termination log entries are uploaded to CW logs
+    log.info("XXXXXXXXXX MGIACOMO - _self_terminate START XXXXXXXXXX")
     log.info("Preparing to self terminate the instance in 10 seconds!")
     time.sleep(10)
     log.info("Self terminating instance now!")
-    run_command("sudo poweroff -f")
+    log.info("XXXXXXXXXX MGIACOMO - reenable interface XXXXXXXXXX")
+    run_command("sudo ifconfig ens5 up")
+    log.info("XXXXXXXXXX MGIACOMO - _self_terminate END XXXXXXXXXX")
+    # run_command("sudo poweroff -f")
 
 
 @retry(stop_max_attempt_number=3, wait_fixed=1500)
