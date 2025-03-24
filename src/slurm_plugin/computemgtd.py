@@ -133,8 +133,6 @@ def _self_terminate():
     log.info("Preparing to self terminate the instance in 10 seconds!")
     time.sleep(10)
     log.info("Self terminating instance now!")
-    log.info("XXXXXXXXXX MGIACOMO - reenable interface XXXXXXXXXX")
-    run_command("sudo ifconfig ens5 up")
     log.info("XXXXXXXXXX MGIACOMO - interface re-enabled XXXXXXXXXX")
     log.info("XXXXXXXXXX MGIACOMO - _self_terminate END XXXXXXXXXX")
     run_command("sudo poweroff -f")
@@ -223,8 +221,6 @@ def _run_computemgtd(config_file):
                 _self_terminate()
         else:
             log.info("XXXXXXXXXX MODIFIED BY MGIACOMO -- self terminate skipped because expired_clustermgtd_heartbeat is False XXXXXXXXXX")
-        log.info("XXXXXXXXXX MGIACOMO - reenable interface XXXXXXXXXX")
-        run_command("sudo ifconfig ens5 up")
         sleep_remaining_loop_time(computemgtd_config.loop_time, current_time)
 
 
