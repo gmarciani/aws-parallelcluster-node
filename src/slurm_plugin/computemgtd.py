@@ -139,7 +139,7 @@ def _self_terminate():
     log.info("Self terminating instance now!")
     log.info("XXXXXXXXXX MGIACOMO - interface re-enabled XXXXXXXXXX")
     log.info("XXXXXXXXXX MGIACOMO - _self_terminate END XXXXXXXXXX")
-    run_command("sudo poweroff -f")
+    run_command("sudo shutdown -h now")
 
 
 @retry(stop_max_attempt_number=3, wait_fixed=1500)
