@@ -218,9 +218,11 @@ def _run_computemgtd(config_file):
         if expired_clustermgtd_heartbeat(last_heartbeat, current_time, computemgtd_config.clustermgtd_timeout):
             if computemgtd_config.disable_computemgtd_actions:
                 log.info("All computemgtd actions currently disabled")
+                log.info("XXXXXXXXXX MODIFIED BY MGIACOMO -- self terminate skipped because disable_computemgtd_actions is True XXXXXXXXXX")
             elif _is_self_node_down(computemgtd_config.nodename):
                 _self_terminate()
-        log.info("XXXXXXXXXX MODIFIED BY MGIACOMO -- self terminate skipped XXXXXXXXXX")
+        else:
+            log.info("XXXXXXXXXX MODIFIED BY MGIACOMO -- self terminate skipped because expired_clustermgtd_heartbeat is False XXXXXXXXXX")
         sleep_remaining_loop_time(computemgtd_config.loop_time, current_time)
 
 
