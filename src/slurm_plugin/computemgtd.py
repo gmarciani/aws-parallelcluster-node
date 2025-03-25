@@ -135,11 +135,11 @@ def _self_terminate():
     log.info("Killing slurm processes")
     # TOFIX WORKAROUND: We kill Slurm processes because we observed in 3.13.0 on Ubuntu24.04
     # that the shutdown hangs waiting for these processes to terminate.
-    run_command("sudo killall -9 --quiet slurmd slurmstepd")
+    # run_command("sudo killall -9 --quiet slurmd slurmstepd")
     log.info("Self terminating instance now!")
     log.info("XXXXXXXXXX MGIACOMO - interface re-enabled XXXXXXXXXX")
     log.info("XXXXXXXXXX MGIACOMO - _self_terminate END XXXXXXXXXX")
-    run_command("sudo shutdown -h now")
+    run_command("sudo systemctl poweroff -f")
 
 
 @retry(stop_max_attempt_number=3, wait_fixed=1500)
