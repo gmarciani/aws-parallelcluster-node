@@ -225,6 +225,7 @@ def main():
         level=logging.INFO, format="%(asctime)s - [%(name)s:%(funcName)s] - %(levelname)s - %(message)s"
     )
     log.info("Computemgtd Startup")
+    log.info("XXXXX MODIFIED by MGIACOMO XXXXX")
     try:
         clustermgtd_config_file = os.environ.get("CONFIG_FILE", COMPUTEMGTD_CONFIG_PATH)
         _run_computemgtd(clustermgtd_config_file)
