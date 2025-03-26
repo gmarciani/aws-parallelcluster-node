@@ -132,7 +132,9 @@ def _self_terminate():
     log.info("Preparing to self terminate the instance in 10 seconds!")
     time.sleep(10)
     log.info("Self terminating instance now!")
+    log.info("Unmounting /op/slurm")
     run_command("sudo umount -f -l /opt/slurm")
+    log.info("Shutting down")
     run_command("sudo shutdown -h now")
 
 
